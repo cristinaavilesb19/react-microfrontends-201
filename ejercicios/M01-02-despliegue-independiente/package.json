@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "scripts": {
+    "build:monolito": "npm run build --prefix monolito",
+    "build:tienda": "npm run build --prefix separado/tienda",
+    "build:banner": "npm run build --prefix separado/banner",
+    "monolito": "serve monolito/dist -l 3000",
+    "separado": "serve separado/publicado -l 3000"
+  }
+}

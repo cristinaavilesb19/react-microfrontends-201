@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n cabecera,pie,host \"npm start --prefix cabecera\" \"npm start --prefix pie\" \"npm start --prefix host\""
+  }
+}

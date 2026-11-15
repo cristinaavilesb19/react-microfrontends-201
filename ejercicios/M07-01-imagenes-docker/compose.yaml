@@ -1,0 +1,22 @@
+# Dos microaplicaciones, dos imágenes, dos contenedores.
+# Se lanza desde esta carpeta: docker compose up -d --build
+name: m07-microfrontends
+
+services:
+  saludo:
+    build:
+      context: ../..                                      # raíz del repositorio
+      dockerfile: ejercicios/M07-01-imagenes-docker/saludo/Dockerfile
+    image: saludo:1
+
+  host:
+    build:
+      context: ../..
+      dockerfile: ejercicios/M07-01-imagenes-docker/host/Dockerfile
+    image: host:1
+    environment:
+      SALUDO_URL: http://saludo                           # dónde está el remote (nombre del servicio)
+    ports:
+      - "8080:80"                                         # único punto de entrada para el navegador
+    depends_on:
+      - saludo

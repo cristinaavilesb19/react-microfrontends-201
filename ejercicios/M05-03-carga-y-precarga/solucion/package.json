@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n catalogo,carrito,root-config \"npm start --prefix catalogo\" \"npm start --prefix carrito\" \"npm start --prefix root-config\""
+  }
+}

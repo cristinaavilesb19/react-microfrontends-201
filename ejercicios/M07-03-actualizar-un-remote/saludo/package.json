@@ -1,0 +1,8 @@
+{
+  "name": "m07-03-actualizar-un-remote-saludo",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "build": "NODE_ENV=production webpack --mode production"
+  }
+}

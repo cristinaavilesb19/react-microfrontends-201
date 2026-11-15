@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n mapa,tiempo,host \"npm start --prefix mapa\" \"npm start --prefix tiempo\" \"npm start --prefix host\""
+  }
+}

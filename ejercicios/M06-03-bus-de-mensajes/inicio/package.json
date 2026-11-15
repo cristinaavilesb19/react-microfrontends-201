@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n buscador,resultados,host \"npm start --prefix buscador\" \"npm start --prefix resultados\" \"npm start --prefix host\""
+  }
+}

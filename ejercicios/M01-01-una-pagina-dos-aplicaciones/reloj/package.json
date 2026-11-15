@@ -1,0 +1,7 @@
+{
+  "name": "m01-01-reloj",
+  "private": true,
+  "scripts": {
+    "build": "NODE_ENV=production webpack"
+  }
+}

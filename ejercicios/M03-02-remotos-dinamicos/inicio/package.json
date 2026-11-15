@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n banner-v1,banner-v2,host \"npm start --prefix banner-v1\" \"npm start --prefix banner-v2\" \"npm start --prefix host\""
+  }
+}

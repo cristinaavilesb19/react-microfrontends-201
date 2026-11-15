@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="utf-8" /><link rel="icon" href="data:," /><title>Contenedor</title></head>
+  <body>
+    <h1>Página contenedora (HTML sin React)</h1>
+    <button id="montar">Montar notas</button>
+    <button id="desmontar">Desmontar notas</button>
+    <div id="hueco"></div>
+    <script src="/notas.js"></script>
+    <script>
+      // La página solo conoce el contrato: window.notas.mount(elemento, props) devuelve unmount.
+      let desmontar = null;
+      document.getElementById('montar').onclick = () => {
+        if (!desmontar) desmontar = window.notas.mount(document.getElementById('hueco'), { titulo: 'Notas del contenedor' });
+      };
+      document.getElementById('desmontar').onclick = () => {
+        if (desmontar) { desmontar(); desmontar = null; }
+      };
+    </script>
+  </body>
+</html>

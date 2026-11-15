@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n saludo,host \"npm start --prefix saludo\" \"npm start --prefix host\""
+  }
+}

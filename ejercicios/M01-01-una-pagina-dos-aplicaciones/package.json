@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix portada && npm run build --prefix reloj",
+    "start": "serve publicado -l 3000"
+  }
+}

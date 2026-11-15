@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n perfil,host \"npm start --prefix perfil\" \"npm start --prefix host\""
+  }
+}

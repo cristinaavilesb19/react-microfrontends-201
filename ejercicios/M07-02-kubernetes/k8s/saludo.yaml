@@ -1,0 +1,31 @@
+# Microaplicación saludo: su propio Deployment y su propio Service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saludo
+spec:
+  replicas: 2                      # escala sola, sin tocar el host
+  selector:
+    matchLabels: { app: saludo }
+  template:
+    metadata:
+      labels: { app: saludo }
+    spec:
+      containers:
+        - name: saludo
+          image: saludo:1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          readinessProbe:
+            httpGet: { path: /remoteEntry.js, port: 80 }
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saludo                     # el host lo encuentra por este nombre: http://saludo
+spec:
+  selector: { app: saludo }
+  ports:
+    - port: 80
+      targetPort: 80

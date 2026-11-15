@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n formulario,host \"npm start --prefix formulario\" \"npm start --prefix host\""
+  }
+}

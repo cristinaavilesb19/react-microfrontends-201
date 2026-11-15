@@ -1,0 +1,16 @@
+# Plantilla: la imagen oficial de nginx sustituye ${SALUDO_URL} al arrancar el contenedor.
+server {
+  listen 80;
+  root /usr/share/nginx/html;
+
+  # El remote se publica en el mismo origen que el host: /mf/saludo/ se reenvía a su servidor.
+  location /mf/saludo/ {
+    proxy_pass ${SALUDO_URL}/;
+  }
+
+  # Rutas de la SPA: cualquier otra URL devuelve index.html.
+  location / {
+    add_header Cache-Control "no-cache";
+    try_files $uri /index.html;
+  }
+}

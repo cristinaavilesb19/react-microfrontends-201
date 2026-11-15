@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n remote,host \"npm start --prefix remote\" \"npm start --prefix host\""
+  }
+}

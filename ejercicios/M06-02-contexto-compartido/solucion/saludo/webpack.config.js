@@ -1,0 +1,40 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { ModuleFederationPlugin } = require('webpack').container;
+
+module.exports = {
+  mode: 'development',
+  entry: './src/index.js',
+  output: { publicPath: 'auto', clean: true },
+  // 'idioma-compartido' es el paquete local ../paquetes/idioma.
+  resolve: { extensions: ['.js', '.jsx'], alias: { 'idioma-compartido': path.resolve(__dirname, '../paquetes/idioma') } },
+  devtool: 'source-map',
+  devServer: {
+    port: 3001,
+    historyApiFallback: true,
+    allowedHosts: 'all',
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    client: { webSocketURL: 'auto://0.0.0.0:0/ws', overlay: false },
+  },
+  module: {
+    rules: [{
+      test: /\.jsx?$/,
+      exclude: /node_modules/,
+      use: { loader: 'babel-loader', options: { presets: [['@babel/preset-react', { runtime: 'automatic' }]] } },
+    }],
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'saludo',
+      filename: 'remoteEntry.js',
+      exposes: { './Saludo': './src/Saludo.jsx' },
+      shared: {
+        react: { singleton: true },
+        'react-dom': { singleton: true },
+        // El paquete del contexto, compartido: host y remote usan el mismo IdiomaContext.
+        'idioma-compartido': { singleton: true, version: '1.0.0', requiredVersion: '1.0.0' },
+      },
+    }),
+    new HtmlWebpackPlugin({ template: './public/index.html', publicPath: '/' }),
+  ],
+};

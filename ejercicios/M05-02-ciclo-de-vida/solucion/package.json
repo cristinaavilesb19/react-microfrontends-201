@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n reloj,inestable,root-config \"npm start --prefix reloj\" \"npm start --prefix inestable\" \"npm start --prefix root-config\""
+  }
+}

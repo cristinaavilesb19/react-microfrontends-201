@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n acceso,host \"npm start --prefix acceso\" \"npm start --prefix host\""
+  }
+}

@@ -1,0 +1,8 @@
+# Lo que no entra en el contexto de construcción de las imágenes
+node_modules
+**/node_modules
+**/dist
+**/publicado
+.git
+.agent
+.cursor

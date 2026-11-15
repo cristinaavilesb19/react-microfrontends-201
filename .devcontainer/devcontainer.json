@@ -1,0 +1,23 @@
+{
+  "name": "Microfrontends con React",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": { "disableIp6tables": true },
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": { "version": "1.30", "helm": "none", "minikube": "none" },
+    "ghcr.io/devcontainers-extra/features/kind:1": { "version": "0.26.0" }
+  },
+  "hostRequirements": { "cpus": 4, "memory": "8gb" },
+  "forwardPorts": [3000, 3001, 3002, 3003, 8080],
+  "portsAttributes": {
+    "3000": { "label": "host / root-config" },
+    "3001": { "label": "remote 1" },
+    "3002": { "label": "remote 2" },
+    "3003": { "label": "remote 3" },
+    "8080": { "label": "Docker / Kubernetes" }
+  },
+  "postCreateCommand": "npm ci --no-audit --no-fund",
+  "postStartCommand": "bash scripts/red-docker-codespace.sh || true; bash scripts/kind-net-fix.sh || true",
+  "customizations": {
+    "vscode": { "settings": { "terminal.integrated.defaultProfile.linux": "bash" } }
+  }
+}

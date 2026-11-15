@@ -1,0 +1,8 @@
+{
+  "name": "m02-01-fronteras",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "lint": "eslint src"
+  }
+}

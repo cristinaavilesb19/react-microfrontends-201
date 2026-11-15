@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n favoritos,host \"npm start --prefix favoritos\" \"npm start --prefix host\""
+  }
+}

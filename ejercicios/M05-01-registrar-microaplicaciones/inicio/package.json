@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "concurrently -n navegacion,inicio,perfil,root-config \"npm start --prefix navegacion\" \"npm start --prefix inicio\" \"npm start --prefix perfil\" \"npm start --prefix root-config\""
+  }
+}

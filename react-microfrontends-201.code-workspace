@@ -1,0 +1,13 @@
+{
+  "folders": [
+    {
+      "name": "react-microfrontends-201",
+      "path": "/home/david/Cursos/react-microfrontends-201"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.git": true
+    }
+  }
+}

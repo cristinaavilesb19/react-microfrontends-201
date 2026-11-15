@@ -1,0 +1,10 @@
+# Clúster kind de un nodo. El puerto 30080 del nodo se publica como 8080 en la máquina.
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: microfrontends
+nodes:
+  - role: control-plane
+    extraPortMappings:
+      - containerPort: 30080
+        hostPort: 8080
+        listenAddress: "127.0.0.1"   # escucha solo en local (Codespaces lo reenvía desde la pestaña Puertos)

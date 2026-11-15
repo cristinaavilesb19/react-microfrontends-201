@@ -1,0 +1,8 @@
+{
+  "name": "m04-03-host",
+  "private": true,
+  "scripts": {
+    "start": "webpack serve",
+    "build": "NODE_ENV=production webpack --mode production"
+  }
+}
