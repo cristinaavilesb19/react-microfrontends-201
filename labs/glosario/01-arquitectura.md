@@ -21,8 +21,11 @@ Cómo se compone una página hecha por varios equipos
     ├── ○ iframes (aislamiento total, integración pobre)
     ├── ○ Web Components (custom elements como frontera)
     ├── ✔ Script con contrato de montaje ........ M01-01, M01-02, M02-02
-    ├── ✔ Webpack Module Federation .............. M03, M04, M06, M07
-    └── ✔ single-spa (orquestación por URL) ...... M05
+    ├── ✔ import() desde un shell ................ M01-03, M01-05
+    ├── ✔ Import maps (antes, SystemJS) .......... M01-05
+    ├── ✔ Webpack Module Federation .............. M01-05, M03, M04, M06, M07
+    ├── ✔ single-spa (orquestación por URL) ...... M01-05, M05
+    └── ✔ qiankun (single-spa con sandbox) ....... M01-05
 ```
 
 <a id="comparacion-composicion"></a>
@@ -51,7 +54,7 @@ en el hueco que le deja la página. A partir de M03, cada remote es un microfron
 **Dónde se rompe:** cuando dos microfrontends tienen que desplegarse juntos para funcionar. Entonces la
 separación solo añade complejidad.
 
-**Lo usas en:** <!--usos:microfrontend-->[M01](../M01-introduccion-microfrontends/README.md) · [00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [02-lab](../M01-introduccion-microfrontends/02-lab-despliegue-independiente.md) · [M02](../M02-diseno-arquitecturas/README.md) · [00-imp](../M02-diseno-arquitecturas/00-imports-cruzados.md) · [01-lab](../M02-diseno-arquitecturas/01-lab-fronteras-entre-modulos.md) · [M03](../M03-module-federation/README.md) · [02-lab](../M03-module-federation/02-lab-remotos-dinamicos.md) · [04-lab](../M03-module-federation/04-lab-lazy-loading-remotos.md) · [M04](../M04-state-management/README.md) · [00-don](../M04-state-management/00-donde-vive-el-estado.md) · [01-lab](../M04-state-management/01-lab-store-redux-compartido.md) · [02-lab](../M04-state-management/02-lab-context-estado-local.md) · [03-lab](../M04-state-management/03-lab-sincronizar-estado.md) · [M05](../M05-integracion-single-spa/README.md) · [04-lab](../M06-comunicacion/04-lab-ultimo-valor-retenido.md) · [M07](../M07-despliegue-escalabilidad/README.md) · [00-una](../M07-despliegue-escalabilidad/00-una-imagen-por-microfrontend.md) · [01-lab](../M07-despliegue-escalabilidad/01-lab-imagenes-docker.md) · [02-lab](../M07-despliegue-escalabilidad/02-lab-kubernetes.md) · [03-lab](../M07-despliegue-escalabilidad/03-lab-actualizar-un-remote.md)<!--/usos-->
+**Lo usas en:** <!--usos:microfrontend-->[M01](../M01-introduccion-microfrontends/README.md) · [00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [02-lab](../M01-introduccion-microfrontends/02-lab-despliegue-independiente.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [04-lab](../M01-introduccion-microfrontends/04-lab-aislamiento-de-estilos.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [M02](../M02-diseno-arquitecturas/README.md) · [00-imp](../M02-diseno-arquitecturas/00-imports-cruzados.md) · [01-lab](../M02-diseno-arquitecturas/01-lab-fronteras-entre-modulos.md) · [M03](../M03-module-federation/README.md) · [02-lab](../M03-module-federation/02-lab-remotos-dinamicos.md) · [04-lab](../M03-module-federation/04-lab-lazy-loading-remotos.md) · [M04](../M04-state-management/README.md) · [00-don](../M04-state-management/00-donde-vive-el-estado.md) · [01-lab](../M04-state-management/01-lab-store-redux-compartido.md) · [02-lab](../M04-state-management/02-lab-context-estado-local.md) · [03-lab](../M04-state-management/03-lab-sincronizar-estado.md) · [M05](../M05-integracion-single-spa/README.md) · [04-lab](../M06-comunicacion/04-lab-ultimo-valor-retenido.md) · [M07](../M07-despliegue-escalabilidad/README.md) · [00-una](../M07-despliegue-escalabilidad/00-una-imagen-por-microfrontend.md) · [01-lab](../M07-despliegue-escalabilidad/01-lab-imagenes-docker.md) · [02-lab](../M07-despliegue-escalabilidad/02-lab-kubernetes.md) · [03-lab](../M07-despliegue-escalabilidad/03-lab-actualizar-un-remote.md)<!--/usos-->
 
 Relacionado: [monolito](#monolito) · [despliegue independiente](#despliegue-independiente)
 
@@ -113,7 +116,7 @@ puede cambiar sin pedir permiso.
 **Dónde se rompe:** cuando cambia sin avisar: `user=` en lugar de `usuario=` deja el perfil «sin datos» sin
 ningún error (M06-01).
 
-**Lo usas en:** <!--usos:contrato-->[M01](../M01-introduccion-microfrontends/README.md) · [00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [01-una](../M01-introduccion-microfrontends/01-una-pagina-dos-aplicaciones.md) · [02-lab](../M01-introduccion-microfrontends/02-lab-despliegue-independiente.md) · [M02](../M02-diseno-arquitecturas/README.md) · [00-imp](../M02-diseno-arquitecturas/00-imports-cruzados.md) · [01-lab](../M02-diseno-arquitecturas/01-lab-fronteras-entre-modulos.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [03-lab](../M02-diseno-arquitecturas/03-lab-enrutamiento-compartido.md) · [01-lab](../M03-module-federation/01-lab-host-y-remote.md) · [M04](../M04-state-management/README.md) · [00-don](../M04-state-management/00-donde-vive-el-estado.md) · [01-lab](../M04-state-management/01-lab-store-redux-compartido.md) · [02-lab](../M04-state-management/02-lab-context-estado-local.md) · [04-lab](../M04-state-management/04-lab-eventos-hacia-el-store.md) · [M06](../M06-comunicacion/README.md) · [01-lab](../M06-comunicacion/01-lab-props-entre-microaplicaciones.md) · [03-lab](../M06-comunicacion/03-lab-bus-de-mensajes.md) · [04-lab](../M06-comunicacion/04-lab-ultimo-valor-retenido.md)<!--/usos-->
+**Lo usas en:** <!--usos:contrato-->[M01](../M01-introduccion-microfrontends/README.md) · [00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [01-una](../M01-introduccion-microfrontends/01-una-pagina-dos-aplicaciones.md) · [02-lab](../M01-introduccion-microfrontends/02-lab-despliegue-independiente.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [04-lab](../M01-introduccion-microfrontends/04-lab-aislamiento-de-estilos.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [M02](../M02-diseno-arquitecturas/README.md) · [00-imp](../M02-diseno-arquitecturas/00-imports-cruzados.md) · [01-lab](../M02-diseno-arquitecturas/01-lab-fronteras-entre-modulos.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [03-lab](../M02-diseno-arquitecturas/03-lab-enrutamiento-compartido.md) · [01-lab](../M03-module-federation/01-lab-host-y-remote.md) · [M04](../M04-state-management/README.md) · [00-don](../M04-state-management/00-donde-vive-el-estado.md) · [01-lab](../M04-state-management/01-lab-store-redux-compartido.md) · [02-lab](../M04-state-management/02-lab-context-estado-local.md) · [04-lab](../M04-state-management/04-lab-eventos-hacia-el-store.md) · [M06](../M06-comunicacion/README.md) · [01-lab](../M06-comunicacion/01-lab-props-entre-microaplicaciones.md) · [03-lab](../M06-comunicacion/03-lab-bus-de-mensajes.md) · [04-lab](../M06-comunicacion/04-lab-ultimo-valor-retenido.md)<!--/usos-->
 
 <a id="microaplicacion"></a>
 ### Microaplicación
@@ -143,3 +146,50 @@ microaplicación gestiona sus rutas por debajo, relativas a ese prefijo.
 en «No encontrado».
 
 **Lo usas en:** <!--usos:enrutamiento-dos-niveles-->[M02](../M02-diseno-arquitecturas/README.md) · [03-lab](../M02-diseno-arquitecturas/03-lab-enrutamiento-compartido.md)<!--/usos-->
+
+<a id="shell"></a>
+### Shell
+
+**Qué es:** la página que reparte el sitio entre microfrontends: decide cuál ocupa cada hueco y cuándo, lo
+carga y lo retira. No conoce su código, solo dónde está y su contrato. Según la herramienta se llama también
+contenedor, host o root-config.
+
+**En el curso:** `shell.js` con `import()` en M01-03; las cinco versiones de M01-05; el host de Module
+Federation (M03) y el root-config de single-spa (M05) hacen el mismo papel.
+
+**Dónde se rompe:** si monta el siguiente microfrontend sin desmontar el anterior (dos en el mismo hueco) o si
+no controla el fallo de carga de uno de ellos (M01-03).
+
+**Lo usas en:** <!--usos:shell-->[M01](../M01-introduccion-microfrontends/README.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [04-lab](../M01-introduccion-microfrontends/04-lab-aislamiento-de-estilos.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md)<!--/usos-->
+
+Relacionado: [microaplicación](#microaplicacion) · [root-config](04-integracion-despliegue.md#root-config) · [host](02-module-federation.md#host)
+
+<a id="import-map"></a>
+### Import map
+
+**Qué es:** un bloque `<script type="importmap">` con un JSON que asocia nombres a URL. El navegador lo consulta
+en cada `import`: el código importa `'catalogo'` y el import map decide qué fichero es. Es un estándar del
+navegador; antes se hacía con la librería SystemJS.
+
+**En el curso:** M01-05, para importar los microfrontends por nombre y para cargar `single-spa` sin compilar.
+
+**Dónde se rompe:** tiene que estar en el HTML antes de cualquier `<script type="module">`; un nombre que no está
+en el mapa da error al importarlo.
+
+**Lo usas en:** <!--usos:import-map-->[M01](../M01-introduccion-microfrontends/README.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [M05](../M05-integracion-single-spa/README.md) · [01-lab](../M05-integracion-single-spa/01-lab-registrar-microaplicaciones.md) · [03-lab](../M05-integracion-single-spa/03-lab-carga-y-precarga.md)<!--/usos-->
+
+Relacionado: [carga dinámica de remotes](02-module-federation.md#carga-dinamica)
+
+<a id="shadow-dom"></a>
+### Shadow DOM
+
+**Qué es:** un árbol de elementos propio dentro de un elemento de la página (`attachShadow`). Las reglas CSS de
+dentro solo se aplican dentro y las de la página no entran por selector. Es la base de los web components.
+
+**En el curso:** M01-04: cada microfrontend se monta en el `shadowRoot` de su hueco y lleva su `<style>` dentro.
+
+**Dónde se rompe:** las propiedades heredadas (`font-family`, `color`) y las propiedades personalizadas
+(`--color-marca`) sí cruzan; `document.querySelector` no ve lo de dentro, y `attachShadow` no se puede llamar dos
+veces sobre el mismo elemento.
+
+**Lo usas en:** <!--usos:shadow-dom-->[M01](../M01-introduccion-microfrontends/README.md) · [04-lab](../M01-introduccion-microfrontends/04-lab-aislamiento-de-estilos.md)<!--/usos-->

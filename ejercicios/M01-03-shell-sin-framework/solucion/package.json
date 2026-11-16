@@ -1,0 +1,7 @@
+{
+  "name": "m01-03-shell-sin-framework",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 3000"
+  }
+}

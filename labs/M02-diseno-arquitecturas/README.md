@@ -1,6 +1,6 @@
 # M02 — Diseño de Arquitecturas de Microfronts en React
 
-[← Página anterior](../M01-introduccion-microfrontends/02-lab-despliegue-independiente.md) · [Siguiente página →](00-imports-cruzados.md)
+[← Página anterior](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [Siguiente página →](00-imports-cruzados.md)
 
 Antes de federar nada hay que saber **por dónde se corta** una aplicación React. Este módulo trabaja el diseño
 previo a [Module Federation](../glosario/02-module-federation.md#module-federation): qué es una [frontera](../glosario/01-arquitectura.md#frontera) entre módulos y cómo se hace cumplir, cómo se estructura una

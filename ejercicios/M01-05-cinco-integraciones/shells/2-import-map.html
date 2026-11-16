@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" /><link rel="icon" href="data:," /><title>import maps</title>
+    <!-- El import map da nombre a cada microfrontend: el código del shell no lleva URL. -->
+    <script type="importmap">
+      { "imports": { "catalogo": "/catalogo/mfe.js", "reloj": "/reloj/mfe.js" } }
+    </script>
+  </head>
+  <body>
+    <h1>Shell — import maps</h1>
+    <nav><a href="#catalogo">Catálogo</a> · <a href="#reloj">Reloj</a> · <a href="/">Las cinco integraciones</a></nav>
+    <main id="contenedor"></main>
+    <script type="module" src="./import-map.js"></script>
+  </body>
+</html>

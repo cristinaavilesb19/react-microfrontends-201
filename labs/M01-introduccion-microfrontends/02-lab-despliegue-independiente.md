@@ -1,6 +1,6 @@
 # Lab — Despliegue independiente
 
-[← Página anterior](01-una-pagina-dos-aplicaciones.md) · [Siguiente página →](../M02-diseno-arquitecturas/README.md)
+[← Página anterior](01-una-pagina-dos-aplicaciones.md) · [Siguiente página →](03-lab-shell-sin-framework.md)
 
 En este laboratorio practicas el **[despliegue independiente](../glosario/01-arquitectura.md#despliegue-independiente)**, el principio que define un [microfrontend](../glosario/01-arquitectura.md#microfrontend). El
 ejercicio es una tienda mínima (un título, un banner con un texto y una lista de tres productos) que existe en dos

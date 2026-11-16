@@ -358,7 +358,7 @@ registerApplication
 - Elegir qué precargar con datos reales de navegación (qué ruta sigue a cuál), no a ojo.
 - Respetar el ahorro de datos del usuario (`navigator.connection.saveData`) antes de precargar.
 - Con muchas aplicaciones, cargar los remotes de forma dinámica (como en M03) para no pedir todos los
-  `remoteEntry.js` al arrancar; en la variante canónica de single-spa, el import map cumple ese papel.
+  `remoteEntry.js` al arrancar; en la variante canónica de single-spa, el [import map](../glosario/01-arquitectura.md#import-map) cumple ese papel.
 - Medir el efecto con la pestaña **Rendimiento** (Performance) o Lighthouse, no solo contando peticiones.
 
 ### En una frase

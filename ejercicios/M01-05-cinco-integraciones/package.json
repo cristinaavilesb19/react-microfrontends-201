@@ -1,0 +1,8 @@
+{
+  "name": "m01-05-cinco-integraciones",
+  "private": true,
+  "scripts": {
+    "prestart": "node preparar.js",
+    "start": "serve . -l 3000"
+  }
+}

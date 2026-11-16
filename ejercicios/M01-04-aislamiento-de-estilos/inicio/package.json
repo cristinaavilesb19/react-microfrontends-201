@@ -1,0 +1,7 @@
+{
+  "name": "m01-04-aislamiento-de-estilos",
+  "private": true,
+  "scripts": {
+    "start": "serve . -l 3000"
+  }
+}

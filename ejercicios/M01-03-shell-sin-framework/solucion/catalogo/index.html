@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="es">
+  <head><meta charset="utf-8" /><link rel="icon" href="data:," /><title>catalogo (aislado)</title></head>
+  <body>
+    <!-- Modo aislado: el equipo de catalogo prueba su microfrontend sin shell. -->
+    <div id="raiz"></div>
+    <script type="module">
+      import { mount } from './mfe.js';
+      mount(document.getElementById('raiz'));
+    </script>
+  </body>
+</html>

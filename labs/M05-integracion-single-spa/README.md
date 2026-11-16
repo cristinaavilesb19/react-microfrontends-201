@@ -58,7 +58,7 @@ en el `index.html` es la forma de fijar la disposición de la página.
 
 ### Decisión del curso: cargar las aplicaciones con Module Federation
 
-La documentación de single-spa (y `npx create-single-spa`) monta el root-config con **import maps y
+La documentación de single-spa (y `npx create-single-spa`) monta el root-config con **[import maps](../glosario/01-arquitectura.md#import-map) y
 SystemJS**: cada aplicación se compila como módulo SystemJS, el `index.html` declara en un
 `<script type="systemjs-importmap">` la URL de cada una y la carga es `app: () => System.import('@org/perfil')`.
 Las librerías comunes (React, single-spa) se comparten poniéndolas también en el import map.

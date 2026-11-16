@@ -7,10 +7,10 @@ dónde se rompe y en qué páginas lo usas.
 
 | Hoja | Qué reúne |
 |------|-----------|
-| [01 — Arquitectura](01-arquitectura.md) | Microfrontend, monolito, despliegue independiente, fronteras y rutas |
+| [01 — Arquitectura](01-arquitectura.md) | Microfrontend, monolito, shell, fronteras, rutas, import maps y Shadow DOM |
 | [02 — Module Federation](02-module-federation.md) | Host, remote, contenedor, dependencias compartidas, carga dinámica y diferida |
 | [03 — Estado y comunicación](03-estado-comunicacion.md) | Store global, Context, fuente única, eventos y bus de mensajes |
-| [04 — Integración y despliegue](04-integracion-despliegue.md) | single-spa, ciclo de vida, imágenes, Kubernetes y caché |
+| [04 — Integración y despliegue](04-integracion-despliegue.md) | single-spa, qiankun, ciclo de vida, imágenes, Kubernetes y caché |
 
 ## Índice alfabético
 
@@ -33,6 +33,7 @@ dónde se rompe y en qué páginas lo usas.
 - [Frontera de módulo](01-arquitectura.md#frontera)
 - [Host](02-module-federation.md#host)
 - [Imagen multietapa](04-integracion-despliegue.md#imagen-multietapa)
+- [Import map](01-arquitectura.md#import-map)
 - [Inyección de reducers](03-estado-comunicacion.md#inyeccion-reducers)
 - [Lazy loading](02-module-federation.md#lazy-loading)
 - [Microaplicación](01-arquitectura.md#microaplicacion)
@@ -40,11 +41,14 @@ dónde se rompe y en qué páginas lo usas.
 - [Module Federation](02-module-federation.md#module-federation)
 - [Monolito frontend](01-arquitectura.md#monolito)
 - [Precarga](04-integracion-despliegue.md#precarga)
+- [qiankun](04-integracion-despliegue.md#qiankun)
 - [Remote](02-module-federation.md#remote)
 - [Rollback](04-integracion-despliegue.md#rollback)
 - [Rolling update](04-integracion-despliegue.md#rolling-update)
 - [Root-config](04-integracion-despliegue.md#root-config)
 - [Service](04-integracion-despliegue.md#service)
+- [Shadow DOM](01-arquitectura.md#shadow-dom)
+- [Shell](01-arquitectura.md#shell)
 - [single-spa](04-integracion-despliegue.md#single-spa)
 - [Singleton](02-module-federation.md#singleton)
 - [Store global](03-estado-comunicacion.md#store-global)

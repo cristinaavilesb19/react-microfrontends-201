@@ -34,7 +34,7 @@ Ficha: [`reiniciar.sh`](../comandos-lab.md#reiniciar).
 ### Qué está pasando
 
 Una aplicación React normal se monta a sí misma: `index.js` busca `#root` y llama a `createRoot(...).render(...)`.
-Eso solo sirve en su propia página. Para que otro (un contenedor, un shell, [single-spa](../glosario/04-integracion-despliegue.md#single-spa)) la pueda colocar donde
+Eso solo sirve en su propia página. Para que otro (un contenedor, un [shell](../glosario/01-arquitectura.md#shell), [single-spa](../glosario/04-integracion-despliegue.md#single-spa)) la pueda colocar donde
 quiera, la microaplicación tiene que darle la vuelta a esa responsabilidad:
 
 ```text

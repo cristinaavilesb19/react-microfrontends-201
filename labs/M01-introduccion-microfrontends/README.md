@@ -5,7 +5,9 @@
 Este módulo responde a tres preguntas antes de tocar ninguna herramienta: qué es un [microfrontend](../glosario/01-arquitectura.md#microfrontend), qué gana y qué
 cuesta frente a una aplicación React monolítica, y en qué proyectos compensa. La respuesta no se queda en la
 teoría: se ve una página compuesta por dos aplicaciones React que se construyen por separado y, en el laboratorio,
-se cambia una de ellas y se publica sin recompilar la otra.
+se cambia una de ellas y se publica sin recompilar la otra. Después, sin React ni librerías, se escribe a mano lo
+que hace cualquier herramienta de microfrontends: un [shell](../glosario/01-arquitectura.md#shell) que carga y desmonta, el aislamiento de estilos y las
+cinco formas habituales de integrar las partes.
 
 ## Qué aprenderás
 
@@ -17,6 +19,10 @@ se cambia una de ellas y se publica sin recompilar la otra.
 - Comprobar con los nombres de los ficheros publicados qué se vuelve a desplegar al cambiar una parte, en un
   monolito y en una página separada.
 - Detectar el primer coste de separar sin más: cada aplicación lleva su propia copia de React.
+- Escribir un shell en JavaScript puro que carga cada microfrontend con `import()` y respeta su contrato
+  `mount`/`unmount`.
+- Detectar una colisión de estilos entre microfrontends y aislarlos con prefijos y con [Shadow DOM](../glosario/01-arquitectura.md#shadow-dom).
+- Comparar `import()`, [import maps](../glosario/01-arquitectura.md#import-map), [single-spa](../glosario/04-integracion-despliegue.md#single-spa), [qiankun](../glosario/04-integracion-despliegue.md#qiankun) y [Module Federation](../glosario/02-module-federation.md#module-federation) sobre los mismos microfrontends.
 
 ## Teoría
 
@@ -36,8 +42,9 @@ cambiar un texto obliga a recompilar y volver a publicar el conjunto.
 > Separar el código en carpetas o paquetes no es tener microfrontends. Lo que define un microfrontend es que se
 > **despliega** solo: se publica una parte nueva y las demás no se recompilan.
 
-En este módulo la composición es la más sencilla posible: la página carga con una etiqueta `<script>` un fichero
-que otra aplicación publica en una URL fija. A partir del M03 esa misma idea se hace con **[Module Federation](../glosario/02-module-federation.md#module-federation)**,
+En este módulo la composición empieza por lo más sencillo posible: la página carga con una etiqueta `<script>` un
+fichero que otra aplicación publica en una URL fija. Le sigue un shell que pide cada parte con `import()` cuando
+hace falta, y una comparación de las técnicas y librerías que automatizan ese trabajo. A partir del M03 esa misma idea se hace con **Module Federation**,
 que además permite compartir React entre las partes.
 
 ## Páginas
@@ -48,6 +55,9 @@ que además permite compartir React entre las partes.
 | 00 | [Del monolito a los microfrontends](00-del-monolito-a-microfrontends.md) | Qué es un microfrontend, sus principios y en qué casos empresariales compensa |
 | 01 | [Una página, dos aplicaciones](01-una-pagina-dos-aplicaciones.md) | Demostración: una página compone dos aplicaciones React construidas y publicadas por separado |
 | 02 | [Lab — Despliegue independiente](02-lab-despliegue-independiente.md) | Cambias un widget y lo publicas sin recompilar la página que lo usa; comparas con un monolito |
+| 03 | [Lab — Un shell sin framework](03-lab-shell-sin-framework.md) | Un shell en JavaScript puro carga cada microfrontend con import() al pedirlo y desmonta el anterior |
+| 04 | [Lab — Aislamiento de estilos](04-lab-aislamiento-de-estilos.md) | Dos microfrontends con la misma clase CSS se pisan; lo resuelves con prefijos y con Shadow DOM |
+| 05 | [Los mismos microfrontends, cinco integraciones](05-cinco-integraciones.md) | Demostración: import(), import maps, single-spa, qiankun y Module Federation sobre los mismos dos microfrontends |
 
 → Empieza por **[00 — Del monolito a los microfrontends](00-del-monolito-a-microfrontends.md)**.
 <!-- /gen:paginas -->
@@ -61,6 +71,9 @@ que además permite compartir React entre las partes.
 | Cambiar el banner separado publica solo `banner.js`; en el monolito cambia el bundle entero | [02 — Lab: despliegue independiente](02-lab-despliegue-independiente.md) |
 | Si el banner no está publicado, la tienda sigue funcionando sin él | [02 — Lab: despliegue independiente](02-lab-despliegue-independiente.md) |
 | Cada aplicación lleva su copia de React (214 KiB por bundle) y el widget vive en una URL fija sin hash | Demo y lab: es el punto de partida del M03 |
+| Un shell carga cada parte con `import()` cuando se pide y la desmonta antes de montar otra; un `unmount` que no limpia deja errores | [03 — Lab: un shell sin framework](03-lab-shell-sin-framework.md) |
+| El CSS es global: la misma clase en dos partes se pisa; el Shadow DOM aísla los selectores, no la herencia | [04 — Lab: aislamiento de estilos](04-lab-aislamiento-de-estilos.md) |
+| `import()`, import maps, single-spa, qiankun y Module Federation integran los mismos microfrontends; cambian dónde vive la dirección y quién orquesta | [05 — Cinco integraciones](05-cinco-integraciones.md) |
 
 > 🔑 Un microfrontend te da independencia para publicar a cambio de integración: en este módulo la pagas con
 > React duplicado y una URL fija; Module Federation (M03) es la forma de pagar menos.

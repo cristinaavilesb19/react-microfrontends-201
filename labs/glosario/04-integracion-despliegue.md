@@ -36,7 +36,21 @@ No sabe de React: trabaja con funciones de ciclo de vida.
 
 **En el curso:** `registerApplication({ name, app, activeWhen })` y `start()` en `root-config.js`.
 
-**Lo usas en:** <!--usos:single-spa-->[00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [03-lab](../M02-diseno-arquitecturas/03-lab-enrutamiento-compartido.md) · [M05](../M05-integracion-single-spa/README.md) · [00-roo](../M05-integracion-single-spa/00-root-config.md) · [01-lab](../M05-integracion-single-spa/01-lab-registrar-microaplicaciones.md) · [02-lab](../M05-integracion-single-spa/02-lab-ciclo-de-vida.md) · [03-lab](../M05-integracion-single-spa/03-lab-carga-y-precarga.md)<!--/usos-->
+**Lo usas en:** <!--usos:single-spa-->[M01](../M01-introduccion-microfrontends/README.md) · [00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [03-lab](../M02-diseno-arquitecturas/03-lab-enrutamiento-compartido.md) · [M05](../M05-integracion-single-spa/README.md) · [00-roo](../M05-integracion-single-spa/00-root-config.md) · [01-lab](../M05-integracion-single-spa/01-lab-registrar-microaplicaciones.md) · [02-lab](../M05-integracion-single-spa/02-lab-ciclo-de-vida.md) · [03-lab](../M05-integracion-single-spa/03-lab-carga-y-precarga.md)<!--/usos-->
+
+<a id="qiankun"></a>
+### qiankun
+
+**Qué es:** una librería de microfrontends construida sobre single-spa. Cada microfrontend se registra por su
+página HTML (`entry`), y qiankun la descarga, ejecuta sus scripts en un sandbox y llama al ciclo de vida que el
+microfrontend deja en `window`. Nació en Ant Group y se usa sobre todo en China.
+
+**En el curso:** M01-05, como cuarta forma de integrar los mismos dos microfrontends.
+
+**Dónde se rompe:** no ejecuta `<script type="module">`: el microfrontend necesita un script clásico como
+adaptador.
+
+**Lo usas en:** <!--usos:qiankun-->[M01](../M01-introduccion-microfrontends/README.md) · [04-lab](../M01-introduccion-microfrontends/04-lab-aislamiento-de-estilos.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md)<!--/usos-->
 
 <a id="root-config"></a>
 ### Root-config
@@ -63,7 +77,7 @@ desactivarse. `single-spa-react` las crea a partir del componente raíz, con su 
 **Dónde se rompe:** un fallo de render sin `errorBoundary` deja el `unmount` colgado (aviso `#31 … did not
 resolve or reject for 3000 ms`); el resto de microaplicaciones sigue (M05-02).
 
-**Lo usas en:** <!--usos:ciclo-de-vida-->[00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [M02](../M02-diseno-arquitecturas/README.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [M05](../M05-integracion-single-spa/README.md) · [00-roo](../M05-integracion-single-spa/00-root-config.md) · [01-lab](../M05-integracion-single-spa/01-lab-registrar-microaplicaciones.md) · [02-lab](../M05-integracion-single-spa/02-lab-ciclo-de-vida.md)<!--/usos-->
+**Lo usas en:** <!--usos:ciclo-de-vida-->[00-del](../M01-introduccion-microfrontends/00-del-monolito-a-microfrontends.md) · [03-lab](../M01-introduccion-microfrontends/03-lab-shell-sin-framework.md) · [05-cin](../M01-introduccion-microfrontends/05-cinco-integraciones.md) · [M02](../M02-diseno-arquitecturas/README.md) · [02-lab](../M02-diseno-arquitecturas/02-lab-estructura-microaplicacion.md) · [M05](../M05-integracion-single-spa/README.md) · [00-roo](../M05-integracion-single-spa/00-root-config.md) · [01-lab](../M05-integracion-single-spa/01-lab-registrar-microaplicaciones.md) · [02-lab](../M05-integracion-single-spa/02-lab-ciclo-de-vida.md)<!--/usos-->
 
 <a id="precarga"></a>
 ### Precarga

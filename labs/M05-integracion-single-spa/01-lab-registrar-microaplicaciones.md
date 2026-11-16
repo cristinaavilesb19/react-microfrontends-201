@@ -465,7 +465,7 @@ URL ──▶ activeWhen de cada aplicación ──▶ app() la primera vez ─�
   repartir `activeWhen` por el código.
 - Pasar datos comunes a todas las aplicaciones con `customProps` en `registerApplication`.
 - Mostrar algo en una ruta sin aplicación (una página «no encontrada» registrada con su propio `activeWhen`).
-- En la variante canónica de single-spa, sustituir los `remotes` por un import map para cambiar la URL de una
+- En la variante canónica de single-spa, sustituir los `remotes` por un [import map](../glosario/01-arquitectura.md#import-map) para cambiar la URL de una
   aplicación sin recompilar el root-config.
 
 ### En una frase
